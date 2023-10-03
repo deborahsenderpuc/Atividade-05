@@ -1,0 +1,26 @@
+<hi>{{ action }} Álbum</hi>
+
+<form method='POST'>
+  {% csrf_token %}
+  <div>
+  <label>Título:</label>
+  <input name='title' value="{{ album.title }}">
+  </div>
+
+  <div>
+  <label>Ano:</label>
+  <input type="date" name='year' value="{{ album.year }}">
+  </div>
+
+  <div>
+  <label>Musician:</label>
+  <input name='musician' value="{{ album.musician }}">
+  </div>
+
+  <div>
+  <label>Tipo:</label>
+  <input name='tipo' value="{{ album.tipo }}">
+  </div>
+
+  <input type="submit" value="Registrar">
+</form>

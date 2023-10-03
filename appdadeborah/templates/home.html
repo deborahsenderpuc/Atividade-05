@@ -1,0 +1,157 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Atividade 1</title>
+  <link rel="stylesheet" type='text/css' href="appdadeborah/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    
+</head>
+
+<body style="color: white">
+  <h4>Deborah Sender Freire</h4>
+  <h2>Introdução do site:</h2>
+
+  <p style="text-align: justify;">
+    Este site apresentará os <u>artistas</u>, <u>álbuns</u> e <u>artistas</u> que eu gosto para conhecer meu gosto musical. Meus gêneros musicais favoritos são <i>pop, indie pop, soft rock, indie folk, indie rock,</i> e <i>folk pop.</i>
+    Você pode procurar tudo que foi listado neste site e ouvir no <b> <a href="https://spotify.com" target='_blank' style="color: green"> site do spotify</a></b> ou outra plataforma de streaming de música de sua preferência.
+  </p>
+
+  <div class="blue-center">
+  <img src="https://www.billboard.com/wp-content/uploads/2023/07/taylor-swift-haim-eras-tour-july-28-2023-billboard-1548.jpg?w=942&h=623&crop=1" width="300">
+  <img src="https://www.billboard.com/wp-content/uploads/2023/01/boygenius-press-2023-cr-Harrison-Whitford-billboard-1548.jpg" width="300">
+  <img src="https://www.tenhomaisdiscosqueamigos.com/wp-content/uploads/2017/08/lorde-jack-antonoff.jpg" width="355">
+  </div>
+
+  <h5 style="text-align: center;"> Da esquerda para a direita: Este Haim, Taylor Swift, Danielle Haim, Alana Haim (as irmãs do grupo <i>HAIM</i>), Phoebe Bridgers, Lucy Dacus, Julien Baker (as três do grupo <i>boygenius</i>), Lorde e Jack Antonoff (da banda <i>Bleachers</i>).</h5>
+  
+  <h2>Algumas músicas favoritas:</h2>
+  <!-- ol>
+    <li>Taylor Swift</li>
+    <li>Lucy Dacus</li>
+    <li>HAIM</li>
+    <li>Boygenius</li>
+    <li>Bleachers</li>
+    <li>Lorde</li>
+    <li>Sabrina Carpenter</li>
+    <li>Fleetwood Mac</li>
+    <li>Phoebe Bridgers</li>
+    <li>Hozier</li>
+  </ol> -->
+  <ol>
+    {% for musicas in mscs %}
+      <li>
+        {{ musicas.title }}
+        <a href="/songs/update/{{ musicas.id }}">Atualizar</a>
+        <a href="/songs/delete/{{ musicas.id }}">Remover</a>
+      </li>
+    {% endfor %}
+  </ol>
+  <a href="/songs">Adicionar Nova Música</a>
+    
+  
+  <h2>Meus álbuns favoritos (sem ordem):</h2>
+  <!-- ul>
+    <li>Folklore - Taylor Swift</li>
+    <li>Home Video - Lucy Dacus</li>
+    <li>Gone Now - Bleachers</li>
+    <li>Women in Music Pt. III - HAIM</li>
+    <li>The Record - boygenius</li>
+    <li>Immunity - Clairo</li>
+    <li>Melodrama - Lorde</li>
+    <li>Speak Now (Taylor's Version) - Taylor Swift</li>
+    <li>Rumours - Fleetwood Mac</li>
+    <li>Jaguar - Victoria Monét</li>
+    <li>Hozier - Hozier</li>
+    <li>Evermore - Taylor Swift</li>
+  </ul> -->
+  <ul>
+    {% for albums in albms %}
+      <li>
+        {{ albums.title }}
+        <a href="/albums/update/{{ albums.id }}">Atualizar</a>
+        <a href="/albums/delete/{{ albums.id }}">Remover</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="/albums">Adicionar Novo Álbum</a>
+
+<h2>Mais músicas favoritas:</h2>
+  <table border="3" style="text-align: center;">
+    <tr style="background-color:green">
+      <th>Título</th>
+      <th>Álbum</th>
+      <th>Artista</th>
+    </tr>
+    <tr>
+      <td>ICU</td>
+      <td>Punisher</td>
+      <td>Phoebe Bridgers</td>
+    </tr>
+    <tr>
+      <td>Jackie and Wilson</td>
+      <td>Hozier</td>
+      <td>Hozier</td>
+    </tr>
+    <tr>
+      <td>Don't Go Dark</td>
+      <td>Take The Sadness Out Of Saturday Night</td>
+      <td>Bleachers</td>
+    </tr>
+    <tr>
+      <td>Prom</td>
+      <td>Ctrl</td>
+      <td>SZA</td>
+    </tr>
+    <tr>
+      <td>Drops Of Jupiter (Tell Me)</td>
+      <td>Drops Of Jupiter</td>
+      <td>Train</td>
+    </tr>
+    <tr>
+      <td>Hard Feelings/Loveless</td>
+      <td>Melodrama</td>
+      <td>Lorde</td>
+    </tr>
+    <tr>
+      <td>Take Care Of Yourself</td>
+      <td>It's Your Bed Babe, It's Your Funeral</td>
+      <td>Maisie Peters</td>
+    </tr>
+    <tr>
+      <td>Run And Hide</td>
+      <td>Evolution</td>
+      <td>Sabrina Carpenter</td>
+    </tr>
+    <tr>
+      <td>Say You Will</td>
+      <td>Say You Will</td>
+      <td>Fleetwood Mac</td>
+    </tr>
+    <tr>
+      <td>Delilah</td>
+      <td>How Big, How Blue, How Beautiful</td>
+      <td>Florence + The Machine</td>
+    </tr>
+    <tr>
+      <td>Bags</td>
+      <td>Immunity</td>
+      <td>Clairo</td>
+    </tr>
+    <tr>
+      <td>Finally // Beautiful Stranger</td>
+      <td>Manic</td>
+      <td>Halsey</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

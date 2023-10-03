@@ -1,0 +1,7 @@
+Você tem certeza que deseja remover o álbum "{{ album.title }}"?
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Sim">
+  <input type="submit" value="Não">
+</for>

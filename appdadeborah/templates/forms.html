@@ -1,0 +1,26 @@
+<hi>{{ action }} Música</hi>
+
+<form method='POST'>
+  {% csrf_token %}
+  <div>
+  <label>Título:</label>
+  <input name='title' value="{{ song.title }}">
+  </div>
+
+  <div>
+  <label>Álbum:</label>
+  <input name='album' value="{{ song.album }}">
+  </div>
+
+  <div>
+  <label>Artista:</label>
+  <input name='artista' value="{{ song.artista }}">
+  </div>
+
+  <div>
+  <label>Release:</label>
+  <input type="date" name='release' value="{{ song.release }}">
+  </div>
+
+  <input type="submit" value="Registrar">
+</form>
